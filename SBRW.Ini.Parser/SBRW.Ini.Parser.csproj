@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>A .NET, Mono and Unity3d compatible(*) library for reading/writing INI data from IO streams, file streams, and strings written in C#.
+
+Also implements merging operations, both for complete ini files, sections, or even just a subset of the keys contained by the files.
+
+(*) This library is 100% .NET code and does not have any dependencies on Windows API calls in order to be portable.</Description>
+    <summary>A simple C# library for reading and writing INI files</summary>
+    <PackageTags>ini, parser, configuration, config, inifile, cfg, ini file</PackageTags>
+    <Version>2.6.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>Ricardo Amores Hernández</Authors>
+    <Copyright>© Ricardo Amores Hernández 2009-2020</Copyright>
+    <PackageProjectUrl>https://github.com/DavidCarbon-SBRW/SBRW.Ini.Parser</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DavidCarbon-SBRW/SBRW.Ini.Parser</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageIcon>Logo_128.png</PackageIcon>
+    <PackageIconUrl />
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <DebugType>embedded</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Icon\Logo_128.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  
+</Project>
