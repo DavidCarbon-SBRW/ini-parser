@@ -1,3 +1,4 @@
+name: Build Status - Preview
 on:
   push:
     tags:
@@ -10,7 +11,7 @@ jobs:
     - name: Branch Checkout
       uses: actions/checkout@v2.4.0
     - name: Set VERSION variable from tag
-      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV 
+      run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
     - name: Set Custom NuGet Packages
       run: |
         dotnet nuget add source ${PrivateNuGetUrl} -n "SBRW Launcher Libraries" -u ${GHUserName} -p ${Password} --store-password-in-clear-text
