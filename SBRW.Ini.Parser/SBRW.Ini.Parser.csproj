@@ -10,7 +10,7 @@ Also implements merging operations, both for complete ini files, sections, or ev
 (*) This library is 100% .NET code and does not have any dependencies on Windows API calls in order to be portable.</Description>
     <summary>A simple C# library for reading and writing INI files</summary>
     <PackageTags>ini, parser, configuration, config, inifile, cfg, ini file</PackageTags>
-    <Version>2.6.2</Version>
+    <Version>2.6.3</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>Ricardo Amores Hernández</Authors>
     <Copyright>© Ricardo Amores Hernández 2009-2020</Copyright>
@@ -22,8 +22,15 @@ Also implements merging operations, both for complete ini files, sections, or ev
     <PackageIconUrl />
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <DebugType>embedded</DebugType>
+    <!-- Required: Full Debugging -->
+    <DebugType>full</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <!-- Required: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!-- Required: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <!-- Required: Include symbols files if Self-Hosted Nuget Feed does not support symbol packages -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
   </PropertyGroup>
 
   <ItemGroup>
