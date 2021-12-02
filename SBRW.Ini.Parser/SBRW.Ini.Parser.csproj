@@ -10,7 +10,7 @@ Also implements merging operations, both for complete ini files, sections, or ev
 (*) This library is 100% .NET code and does not have any dependencies on Windows API calls in order to be portable.</Description>
     <summary>A simple C# library for reading and writing INI files</summary>
     <PackageTags>ini, parser, configuration, config, inifile, cfg, ini file</PackageTags>
-    <Version>2.6.3</Version>
+    <Version>2.6.4</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>Ricardo Amores Hernández</Authors>
     <Copyright>© Ricardo Amores Hernández 2009-2020</Copyright>
