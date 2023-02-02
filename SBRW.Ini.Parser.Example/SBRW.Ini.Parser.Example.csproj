@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFrameworks>netstandard2.0;net461;net472;net6.0</TargetFrameworks>
+    <OutputType>Exe</OutputType>
+    <IsPackable>False</IsPackable>
+    <ReleaseVersion></ReleaseVersion>
+  </PropertyGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\SBRW.Ini.Parser\SBRW.Ini.Parser.csproj" />
+    </ItemGroup>
+
+  <ItemGroup>
+    <None Update="TestIniFile.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
