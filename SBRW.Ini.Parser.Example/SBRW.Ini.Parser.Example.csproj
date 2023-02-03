@@ -1,11 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	<TargetFrameworks>netstandard2.0;net461;net472;net6.0</TargetFrameworks>
     <OutputType>Exe</OutputType>
     <IsPackable>False</IsPackable>
     <ReleaseVersion></ReleaseVersion>
   </PropertyGroup>
+	<!-- Auto-select supported target frameworks based on MSBuild version -->
+	<PropertyGroup Condition="'$(MSBuildRuntimeType)'=='Core'">
+		<TargetFrameworks>net6.0</TargetFrameworks>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(MSBuildRuntimeType)'!='Core'">
+		<TargetFrameworks>net461;net472;net6.0</TargetFrameworks>
+	</PropertyGroup>
     <ItemGroup>
       <ProjectReference Include="..\SBRW.Ini.Parser\SBRW.Ini.Parser.csproj" />
     </ItemGroup>
