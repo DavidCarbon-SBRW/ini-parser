@@ -10,21 +10,23 @@ namespace SBRW.Ini.Parser.Exceptions
         /// <summary>
         /// 
         /// </summary>
-        public Version LibVersion {get; private set;}
+        public Version LibVersion { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public int LineNumber {get; private set;}
+        public uint LineNumber { get; set; }
         /// <summary>
         /// 
         /// </summary>
-        public string LineValue {get; private set;}
+        public string LineContents { get; set; }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="msg"></param>
-        public ParsingException(string msg)
-            :this(msg, 0, string.Empty, null) 
+        /// <param name="lineNumber"></param>
+
+        public ParsingException(string msg, uint lineNumber)
+            :this(msg, lineNumber, string.Empty, null)
         {}
         /// <summary>
         /// 
@@ -39,27 +41,33 @@ namespace SBRW.Ini.Parser.Exceptions
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="lineNumber"></param>
-        /// <param name="lineValue"></param>
-        public ParsingException(string msg, int lineNumber, string lineValue)
-            :this(msg, lineNumber, lineValue, null)
+        /// <param name="lineContents"></param>
+        public ParsingException(string msg, uint lineNumber, string lineContents)
+            :this(msg, lineNumber, lineContents, null)
         {}
         /// <summary>
         /// 
         /// </summary>
         /// <param name="msg"></param>
         /// <param name="lineNumber"></param>
-        /// <param name="lineValue"></param>
+        /// <param name="lineContents"></param>
         /// <param name="innerException"></param>
-        public ParsingException(string msg, int lineNumber, string lineValue, Exception innerException)
+        public ParsingException(string msg, uint lineNumber, string lineContents, Exception innerException)
             : base(
-                string.Format(
-                    "{0} while parsing line number {1} with value \'{2}\' - IniParser version: {3}", 
-                    msg, lineNumber, lineValue, System.Reflection.Assembly.GetExecutingAssembly().GetName().Version),
+                $"{msg} while parsing line number {lineNumber} with value \'{lineContents}\'", 
                 innerException) 
         { 
-            LibVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            LibVersion = GetAssemblyVersion();
             LineNumber = lineNumber;
-            LineValue = lineValue;
+            LineContents = lineContents;
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        private Version GetAssemblyVersion()
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
         }
     }
 }

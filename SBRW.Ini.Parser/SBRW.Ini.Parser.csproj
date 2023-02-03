@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net40;net461;net472</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net461;net472;net6.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Description>A .NET, Mono and Unity3d compatible(*) library for reading/writing INI data from IO streams, file streams, and strings written in C#.
 
@@ -10,7 +10,7 @@ Also implements merging operations, both for complete ini files, sections, or ev
 (*) This library is 100% .NET code and does not have any dependencies on Windows API calls in order to be portable.</Description>
     <summary>A simple C# library for reading and writing INI files</summary>
     <PackageTags>ini, parser, configuration, config, inifile, cfg, ini file</PackageTags>
-    <Version>2.6.5</Version>
+    <Version>3.0.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>Ricardo Amores Hernández</Authors>
     <Copyright>© Ricardo Amores Hernández 2009-2020</Copyright>

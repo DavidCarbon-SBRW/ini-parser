@@ -1,6 +1,5 @@
 using System;
-using SBRW.Ini.Parser.Model.Configuration;
-using SBRW.Ini.Parser.Model.Formatting;
+using SBRW.Ini.Parser.Configuration;
 
 namespace SBRW.Ini.Parser.Model
 {
@@ -15,34 +14,33 @@ namespace SBRW.Ini.Parser.Model
         ///     Initializes an empty IniData instance.
         /// </summary>
         public IniDataCaseInsensitive()
-            : base (new SectionDataCollection(StringComparer.OrdinalIgnoreCase))
         {
-            Global = new KeyDataCollection(StringComparer.OrdinalIgnoreCase);
+            Sections = new SectionCollection(StringComparer.OrdinalIgnoreCase);
+            Global = new PropertyCollection(StringComparer.OrdinalIgnoreCase);
+            _scheme = new IniScheme();
         }
-
         /// <summary>
-        ///     Initializes a new IniData instance using a previous
-        ///     <see cref="SectionDataCollection"/>.
+        ///     Initializes an empty IniData instance.
         /// </summary>
-        /// <param name="sdc">
-        ///     <see cref="SectionDataCollection"/> object containing the
-        ///     data with the sections of the file
-        /// </param>
-        public IniDataCaseInsensitive(SectionDataCollection sdc)
-            : base (new SectionDataCollection(sdc, StringComparer.OrdinalIgnoreCase))
+        /// <param name="scheme"></param>
+        public IniDataCaseInsensitive(IniScheme scheme)
         {
-            Global = new KeyDataCollection(StringComparer.OrdinalIgnoreCase);
+            Sections = new SectionCollection(StringComparer.OrdinalIgnoreCase);
+            Global = new PropertyCollection(StringComparer.OrdinalIgnoreCase);
+            _scheme = scheme.DeepClone();
         }
 
+
         /// <summary>
-        /// Copies an instance of the <see cref="SBRW.Ini.Parser.Model.IniDataCaseInsensitive"/> class
+        /// Copies an instance of the <see cref="IniDataCaseInsensitive"/> class
         /// </summary>
         /// <param name="ori">Original </param>
         public IniDataCaseInsensitive(IniData ori)
-            : this(new SectionDataCollection(ori.Sections, StringComparer.OrdinalIgnoreCase))
+            : this()
         {
-            Global = (KeyDataCollection) ori.Global.Clone();
-            Configuration = ori.Configuration.Clone();
+            Global = ori.Global.DeepClone();
+            Configuration = ori.Configuration.DeepClone();
+            Sections = new SectionCollection(ori.Sections, StringComparer.OrdinalIgnoreCase);
         }
     }
     
