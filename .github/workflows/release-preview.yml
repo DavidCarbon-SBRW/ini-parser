@@ -9,7 +9,7 @@ jobs:
     timeout-minutes: 15
     steps:
     - name: Branch Checkout
-      uses: actions/checkout@v2.4.0
+      uses: actions/checkout@v3.3.0
     - name: Custom Root Certificate Authority
       run: |
           New-Item -ItemType directory -Path Keys
@@ -20,7 +20,7 @@ jobs:
           certutil -decode "Keys\Private.txt" "Keys\Launcher.p12"      
     - name: Get Release Version Number
       id: get_version
-      uses: battila7/get-version-action@v2.2.1
+      uses: Simply007/get-version-action@v2
     - name: Set Custom NuGet Packages
       run: |
         dotnet nuget add source ${env:PrivateNuGetUrl} -n "SBRW Launcher Libraries" -u ${env:GHUserName} -p ${env:Password} --store-password-in-clear-text
@@ -31,7 +31,7 @@ jobs:
     - name: Restore Custom NuGet Packages
       run: dotnet restore --ignore-failed-sources
     - name: Build
-      run: dotnet build --configuration Release -p:Version=${{steps.get_version.outputs.version-without-v}}
+      run: dotnet build --configuration Release -p:Version=${{steps.get_version.outputs.version-without-v}} SBRW.Ini.Parser
     - name: Test
       run: dotnet test --configuration Release -p:Version=${{steps.get_version.outputs.version-without-v}} --no-build
     - name: Pack
