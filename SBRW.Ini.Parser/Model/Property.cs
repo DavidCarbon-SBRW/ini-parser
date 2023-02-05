@@ -48,7 +48,7 @@ namespace SBRW.Ini.Parser.Model
 
         /// <summary>
         /// Gets or sets the comment list associated to this property.
-        /// Makes a copy og the values when set
+        /// Makes a copy of the values when set
         /// </summary>
         public List<string> Comments
         {

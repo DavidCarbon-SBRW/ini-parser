@@ -65,7 +65,7 @@ namespace SBRW.Ini.Parser.Model
         /// </summary>
         /// <remarks>
         ///     If we try to assign the value of a property which doesn't exists,
-        ///     a new one is added with the kay and the value specified
+        ///     a new one is added with the key and the value specified
         /// </remarks>
         /// <param name="keyName">
         ///     key of the property
@@ -183,7 +183,7 @@ namespace SBRW.Ini.Parser.Model
         ///     Key name to search
         /// </param>
         /// <returns>
-        ///     true if a property with the givne exists in the collectoin
+        ///     true if a property with the given exists in the collection
         ///     false otherwise
         /// </returns>
         public bool Contains(string keyName)
@@ -249,7 +249,7 @@ namespace SBRW.Ini.Parser.Model
         #region IEnumerable<KeyData> Members
 
         /// <summary>
-        /// Allows iteration througt the collection.
+        /// Allows iteration through the collection.
         /// </summary>
         /// <returns>A strong-typed IEnumerator </returns>
         public IEnumerator<Property> GetEnumerator()

@@ -74,10 +74,10 @@ namespace SBRW.Ini.Parser
         ///     Parses a string containing valid ini data
         /// </summary>
         /// <param name="textReader">
-        ///     Text reader for the source string contaninig the ini data
+        ///     Text reader for the source string containing the ini data
         /// </param>
         /// <returns>
-        ///     An <see cref="IniData"/> instance containing the data readed
+        ///     An <see cref="IniData"/> instance containing the data read
         ///     from the source
         /// </returns>
         /// <exception cref="ParsingException">
@@ -97,10 +97,10 @@ namespace SBRW.Ini.Parser
         ///     Parses a string containing valid ini data
         /// </summary>
         /// <param name="textReader">
-        ///     Text reader for the source string contaninig the ini data
+        ///     Text reader for the source string containing the ini data
         /// </param>
         /// <returns>
-        ///     An <see cref="IniData"/> instance containing the data readed
+        ///     An <see cref="IniData"/> instance containing the data read
         ///     from the source
         /// </returns>
         /// <exception cref="ParsingException">
@@ -143,7 +143,7 @@ namespace SBRW.Ini.Parser
             // TODO: is this try necessary?
             try
             {
-                // Orphan comments, assing to last section/key value
+                // Orphan comments, assign to last section/key value
                 if (Configuration.ParseComments && CurrentCommentListTemp.Count > 0)
                 {
                     if (iniData.Sections.Count > 0)
@@ -202,7 +202,7 @@ namespace SBRW.Ini.Parser
             if (currentLine.IsEmpty || currentLine.IsWhitespace) return;
 
             // TODO: change this to a global (IniData level) array of comments
-            // Extract comments from current line and store them in a tmp list
+            // Extract comments from current line and store them in a Temporary list
 
             if (ProcessComment(currentLine)) return;
 
@@ -247,7 +247,7 @@ namespace SBRW.Ini.Parser
             currentLineTrimmed.TrimEnd();
 
             var commentRange = currentLineTrimmed.FindSubstring(Scheme.CommentString);
-            // Exctract the range of the string that contains the comment but not
+            // Extract the range of the string that contains the comment but not
             // the comment delimiter
             var startIdx = commentRange.start + Scheme.CommentString.Length;
             var size = currentLineTrimmed.Count - Scheme.CommentString.Length;
@@ -265,7 +265,7 @@ namespace SBRW.Ini.Parser
         }
 
         /// <summary>
-        ///     Proccess a string which contains an ini section.%
+        ///     Process a string which contains an ini section.%
         /// </summary>
         /// <param name="currentLine">
         ///     The string to be processed
@@ -355,7 +355,7 @@ namespace SBRW.Ini.Parser
         {
             if (currentLine.Count <= 0) return false;
 
-            var propertyAssigmentIdx = currentLine.FindSubstring(Scheme.PropertyAssigmentString);
+            var propertyAssigmentIdx = currentLine.FindSubstring(Scheme.PropertyAssignmentString);
 
             if (propertyAssigmentIdx.IsEmpty) return false;
 
@@ -497,7 +497,7 @@ namespace SBRW.Ini.Parser
         uint _currentLineNumber;
 
         /// <summary>
-        /// Holds a list of the exceptions catched while parsing
+        /// Holds a list of the exceptions caught while parsing
         /// </summary>
         readonly List<Exception> _errorExceptions;
 
@@ -523,7 +523,7 @@ namespace SBRW.Ini.Parser
         }
         List<string> _currentCommentListTemp;
 
-        // Tmp var with the name of the seccion which is being process
+        // Temporary var with the name of the seccion which is being process
         string _currentSectionNameTemp;
 
         // Buffer used to hold the current line being processed.

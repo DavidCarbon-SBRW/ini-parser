@@ -18,10 +18,12 @@ namespace SBRW.Ini.Parser
             Global = new PropertyCollection();
             Sections = new SectionCollection();
             _scheme = new IniScheme();
+            Formatter = new IniDataFormatter();
+            FormatterConfig = new IniFormattingConfiguration();
         }
-        
+
         /// <summary>
-        ///     Initialzes an IniData instance with a given scheme
+        ///     Initializes an IniData instance with a given scheme
         /// </summary>
         /// <param name="scheme"></param>
         public IniData(IniScheme scheme)
@@ -43,7 +45,7 @@ namespace SBRW.Ini.Parser
 
         /// <summary>
         ///     If set to true, it will automatically create a section when you use the indexed 
-        ///     access with a section name that does not exis.
+        ///     access with a section name that does not exist.
         ///     If set to false, it will throw an exception if you try to access a section that 
         ///     does not exist with the index operator.
         /// </summary>
@@ -136,6 +138,16 @@ namespace SBRW.Ini.Parser
         public SectionCollection Sections { get; set; }
 
         /// <summary>
+        /// 
+        /// </summary>
+        public IniDataFormatter Formatter { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public IniFormattingConfiguration FormatterConfig { get; set; }
+
+        /// <summary>
         ///     Deletes all data
         /// </summary>
         public void Clear()
@@ -197,6 +209,26 @@ namespace SBRW.Ini.Parser
         /// </summary>
         protected IniScheme _scheme;
 
+        #endregion
+
+        #region Object Methods
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return ToString(FormatterConfig);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Live_Formatter"></param>
+        /// <returns></returns>
+        public virtual string ToString(IniFormattingConfiguration Live_Formatter)
+        {
+            return Formatter.Format(this, Live_Formatter);
+        }
         #endregion
     }
 }

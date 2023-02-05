@@ -94,7 +94,7 @@ namespace SBRW.Ini.Parser
                 }
 
                 //Write key and value
-                sb.Append($"{property.Key}{format.SpacesBetweenKeyAndAssigment}{scheme.PropertyAssigmentString}{format.SpacesBetweenAssigmentAndValue}{property.Value}{format.NewLineString}");
+                sb.Append($"{property.Key}{format.SpacesBetweenKeyAndAssigment}{scheme.PropertyAssignmentString}{format.SpacesBetweenAssigmentAndValue}{property.Value}{format.NewLineString}");
 
                 if (format.NewLineAfterProperty)
                 {

@@ -93,10 +93,10 @@ key1=1";
             var parser = new IniDataParser();
             parser.Configuration.AllowKeysWithoutSection = true;
 
-            parser.Scheme.PropertyAssigmentString = "";
-            Assert.That(parser.Scheme.PropertyAssigmentString, Is.EqualTo("="));
-            parser.Scheme.PropertyAssigmentString = null;
-            Assert.That(parser.Scheme.PropertyAssigmentString, Is.EqualTo("="));
+            parser.Scheme.PropertyAssignmentString = "";
+            Assert.That(parser.Scheme.PropertyAssignmentString, Is.EqualTo("="));
+            parser.Scheme.PropertyAssignmentString = null;
+            Assert.That(parser.Scheme.PropertyAssignmentString, Is.EqualTo("="));
 
             var ini1 = @"key1 = 1";
             iniData = parser.Parse(ini1);
@@ -104,7 +104,7 @@ key1=1";
             Assert.That(iniData.Global["key1"], Is.EqualTo("1"));
 
             var ini2 = @"key1 <== 1";
-            parser.Scheme.PropertyAssigmentString = "<==";
+            parser.Scheme.PropertyAssignmentString = "<==";
             iniData = parser.Parse(ini2);
         }
     }

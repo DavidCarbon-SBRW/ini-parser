@@ -13,7 +13,7 @@ namespace SBRW.Ini.Parser.Configuration
         ///     Ctor.
         /// </summary>
         /// <remarks>
-        ///     By default the various delimiters for the data are setted:
+        ///     By default the various delimiters for the data are set:
         ///     <para>';' for one-line comments</para>
         ///     <para>'[' ']' for delimiting a section</para>
         ///     <para>'=' for linking key / value pairs</para>
@@ -43,7 +43,7 @@ namespace SBRW.Ini.Parser.Configuration
         /// </param>
         IniScheme(IniScheme ori)
         {
-            PropertyAssigmentString = ori.PropertyAssigmentString;
+            PropertyAssignmentString = ori.PropertyAssignmentString;
             SectionStartString = ori.SectionStartString;
             SectionEndString = ori.SectionEndString;
             CommentString = ori.CommentString;
@@ -51,7 +51,7 @@ namespace SBRW.Ini.Parser.Configuration
 
         /// <summary>
         ///     Sets the string that defines the start of a comment.
-        ///     A comment spans from the mirst matching comment string
+        ///     A comment spans from the first matching comment string
         ///     to the end of the line.
         /// </summary>
         /// <remarks>
@@ -93,17 +93,17 @@ namespace SBRW.Ini.Parser.Configuration
 
 
         /// <summary>
-        ///     Sets the string used in the ini file to denote a key / value assigment
+        ///     Sets the string used in the ini file to denote a key / value assignment
         /// </summary>
         /// <remarks>
         ///     Defaults to character '='
         ///     String returned will also be trimmed
         /// </remarks>
         /// 
-        public string PropertyAssigmentString
+        public string PropertyAssignmentString
         {
-            get => string.IsNullOrWhiteSpace(_propertyAssigmentString) ? "=" : _propertyAssigmentString;
-            set => _propertyAssigmentString = value?.Trim();
+            get => string.IsNullOrWhiteSpace(_propertyassignmentString) ? "=" : _propertyassignmentString;
+            set => _propertyassignmentString = value?.Trim();
         }
         
         #region IDeepCloneable<T> Members
@@ -123,7 +123,7 @@ namespace SBRW.Ini.Parser.Configuration
         string _commentString = ";";
         string _sectionStartString = "[";
         string _sectionEndString = "]";
-        string _propertyAssigmentString = "=";
+        string _propertyassignmentString = "=";
         #endregion
     }
 }
