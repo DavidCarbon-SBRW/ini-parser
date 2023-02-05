@@ -37,7 +37,7 @@ jobs:
     - name: Build
       run: dotnet build --configuration Release -p:Version=${{steps.get_version.outputs.version-without-v}} SBRW.Ini.Parser
     - name: Test
-      run: dotnet test --configuration Release --no-build
+      run: dotnet test --configuration Release -p:Version=${{steps.get_version.outputs.version-without-v}} SBRW.Ini.Parser.Tests
     - name: Pack
       run: dotnet pack --configuration Release -p:Version=${{steps.get_version.outputs.version-without-v}} --no-build --output .
     - name: Push
