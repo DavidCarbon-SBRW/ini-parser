@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBRW.Ini.Parser", "SBRW.Ini
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBRW.Ini.Parser.Tests", "SBRW.Ini.Parser.Tests\SBRW.Ini.Parser.Tests.csproj", "{553AD4A0-946C-436D-8135-5ADBA97D246E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBRW.Ini.Parser.Example", "SBRW.Ini.Parser.Example\SBRW.Ini.Parser.Example.csproj", "{D4CF6996-5C75-46D1-A75B-22731ED16058}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBRW.Ini.Parser.Example.Deployed", "SBRW.Ini.Parser.Example.Deployed\SBRW.Ini.Parser.Example.Deployed.csproj", "{D4CF6996-5C75-46D1-A75B-22731ED16058}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SBRW.Ini.Parser.Example", "SBRW.Ini.Parser.Example\SBRW.Ini.Parser.Example.csproj", "{4B252385-6995-46F1-B92E-A2E01EB2F078}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D4CF6996-5C75-46D1-A75B-22731ED16058}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4CF6996-5C75-46D1-A75B-22731ED16058}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4CF6996-5C75-46D1-A75B-22731ED16058}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B252385-6995-46F1-B92E-A2E01EB2F078}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B252385-6995-46F1-B92E-A2E01EB2F078}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B252385-6995-46F1-B92E-A2E01EB2F078}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B252385-6995-46F1-B92E-A2E01EB2F078}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
