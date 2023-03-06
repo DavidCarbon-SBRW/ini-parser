@@ -55,7 +55,7 @@ namespace SBRW.Ini.Parser
         ///     Implements reading ini data from a file.
         /// </summary>
         /// <remarks>
-        ///     Uses <see cref="Encoding.Default"/> codification for the file.
+        ///     Uses <see cref="Encoding.UTF8"/> codification for the file.
         /// </remarks>
         /// <param name="filePath">
         ///     Path to the file
@@ -65,7 +65,7 @@ namespace SBRW.Ini.Parser
         /// <exception cref="ParsingException"></exception>
         public IniData ReadFile(string filePath)
         {
-            return ReadFile(filePath, Encoding.ASCII);
+            return ReadFile(filePath, Encoding.UTF8);
         }
 
         /// <summary>
@@ -83,7 +83,7 @@ namespace SBRW.Ini.Parser
         /// <exception cref="ParsingException"></exception>
         public IniData ReadFile(string filePath, Encoding fileEncoding)
         {
-            return ReadFile(filePath, Encoding.ASCII, false);
+            return ReadFile(filePath, fileEncoding, false);
         }
 
         /// <summary>

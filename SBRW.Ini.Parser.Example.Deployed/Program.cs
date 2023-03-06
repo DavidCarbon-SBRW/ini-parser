@@ -17,7 +17,7 @@ namespace SBRW.Ini.Parser.Example.Deployed
 
             Console.WriteLine("Game_Path: " + Save_Settings.Live_Data.Game_Path);
 
-            Save_Settings.Live_Data.Game_Path = "C:\\Some\\Folder";
+            Save_Settings.Live_Data.Game_Path = "C:\\Some\\FÖlder";
             Save_Settings.Save();
 
             Console.WriteLine("Settings Saved");
