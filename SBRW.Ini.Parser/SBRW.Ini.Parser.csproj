@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net461;net472;net6.0-windows;net6.0</TargetFrameworks>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Description>A .NET, Mono and Unity3d compatible(*) library for reading/writing INI data from IO streams, file streams, and strings written in C#.
+
+Also implements merging operations, both for complete ini files, sections, or even just a subset of the keys contained by the files.
+
+(*) This library is 100% .NET code and does not have any dependencies on Windows API calls in order to be portable.</Description>
+    <summary>A simple C# library for reading and writing INI files</summary>
+    <PackageTags>ini, parser, configuration, config, inifile, cfg, ini file</PackageTags>
+    <Version>3.0.2</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>Ricardo Amores Hernández</Authors>
+    <Copyright>© Ricardo Amores Hernández 2009-2020</Copyright>
+    <PackageProjectUrl>https://github.com/DavidCarbon-SBRW/SBRW.Ini.Parser</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DavidCarbon-SBRW/SBRW.Ini.Parser</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageIcon>Logo_128.png</PackageIcon>
+    <PackageIconUrl />
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <!-- Required: Full Debugging -->
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <!-- Required: Publish the repository URL in the built .nupkg (in the NuSpec <Repository> element) -->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <!-- Required: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
+    <IncludeSymbols>true</IncludeSymbols>
+    <!-- Required: Include symbols files if Self-Hosted Nuget Feed does not support symbol packages -->
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Icon\Logo_128.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+  
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if &quot;$(Configuration)&quot; == &quot;Release&quot; (&#xD;&#xA;if exist &quot;$(SolutionDir)Keys\Launcher.p12&quot; (&quot;C:\Program Files (x86)\Windows Kits\10\bin\10.0.18362.0\x86\signtool.exe&quot; sign /f &quot;$(SolutionDir)Keys\Launcher.p12&quot; /p &quot;Launcher Development CRT&quot; /d &quot;Soapbox Race World&quot; /du &quot;https://soapboxrace.world&quot; /tr http://timestamp.digicert.com /td SHA256 &quot;$(TargetPath)&quot;)&#xD;&#xA;if exist &quot;$(SolutionDir)Keys\Launcher.p12&quot; (&quot;C:\Program Files (x86)\Windows Kits\10\bin\10.0.18362.0\x86\signtool.exe&quot; sign /f &quot;$(SolutionDir)Keys\Launcher.p12&quot; /p &quot;Launcher Development CRT&quot; /d &quot;Soapbox Race World&quot; /du &quot;https://soapboxrace.world&quot; /tr http://timestamp.digicert.com /td SHA256 &quot;$(TargetDir)SBRW.*.dll&quot;)&#xD;&#xA;)&#xD;&#xA;" />
+  </Target>  
+  
+</Project>

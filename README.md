@@ -7,11 +7,11 @@ Also implements merging operations, both for complete ini files, sections, or ev
 
 (*) This library is 100% .NET code and does not have any dependencies on Windows API calls in order to be portable.
 
-[![Build Status](https://travis-ci.org/rickyah/ini-parser.png?branch=master)](https://travis-ci.org/rickyah/ini-parser)
+[![Build Status - Development](https://github.com/DavidCarbon-SBRW/SBRW.Ini.Parser/actions/workflows/ci.yml/badge.svg)](https://github.com/DavidCarbon-SBRW/SBRW.Ini.Parser/actions/workflows/ci.yml)
 
 
-Get the latest version: https://github.com/rickyah/ini-parser/releases/latest
-Install it with NuGet: https://www.nuget.org/packages/ini-parser/
+Get the latest version: https://github.com/DavidCarbon-SBRW/SBRW.Ini.Parser/releases/latest
+Install it with NuGet: https://github.com/DavidCarbon-SBRW/SBRW.Ini.Parser/packages/
 
 ## Version 2.0
 Since the INI format isn't really a "standard", version 2 introduces a simpler way to customize INI parsing:
@@ -23,16 +23,16 @@ Since the INI format isn't really a "standard", version 2 introduces a simpler w
 
 ## Installation
 
-The library is published to [NuGet](https://www.nuget.org/packages/ini-parser/) and can be installed on the command-line from the directory containing your solution.
+The library is published to [GitHub Packages](https://github.com/DavidCarbon-SBRW/SBRW.Ini.Parser/packages/) and can be installed on the command-line from the directory containing your solution.
 
 ```bat
-> nuget install ini-parser
+> nuget install SBRW.Ini.Parser
 ```
 
 Or, from the [Package Manager Console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio
 
 ```powershell
-PM> Install-Package ini-parser
+PM> Install-Package SBRW.Ini.Parser
 ```
 
 If you are using Visual Studio, you can download the [NuGet Package Manager](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c) extension that will allow adding the NuGet dependency for your project.
@@ -44,8 +44,8 @@ If you use MonoDevelop / Xamarin Studio, you can install the [MonoDevelop NuGet 
 All code examples expect the following using clauses:
 
 ```csharp
-using IniParser;
-using IniParser.Model;
+using SBRW.Ini.Parser;
+using SBRW.Ini.Parser.Model;
 ```
 
 INI data is stored in nested dictionaries, so accessing the value associated to a key in a section is straightforward. Load the data using one of the provided methods.
@@ -70,7 +70,7 @@ data["UI"]["fullscreen"] = "true";
 parser.WriteFile("Configuration.ini", data);
 ```
 
-Head to the [wiki](https://github.com/rickyah/ini-parser/wiki) for more usage examples, or [check out the code of the example project](https://github.com/rickyah/ini-parser/blob/development/src/IniFileParser.Example/Program.cs)
+Head to the [wiki](https://github.com/rickyah/ini-parser/wiki) for more usage examples, or [check out the code of the example project](https://github.com/rickyah/ini-parser/blob/development/src/IniParser.Example/Program.cs)
 
 
 ## Merging ini files
