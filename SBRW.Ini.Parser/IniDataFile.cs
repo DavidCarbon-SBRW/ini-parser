@@ -165,9 +165,12 @@ namespace SBRW.Ini.Parser
         /// </param>
         /// <exception cref="ArgumentException"></exception>
         /// <exception cref="ArgumentNullException"></exception>
+        /// <remarks>
+        ///     Uses <see cref="Encoding.UTF8"/> codification for the file.
+        /// </remarks>
         public void WriteFile(string filePath, IniData parsedData)
         {
-            WriteFile(filePath, parsedData);
+            WriteFile(filePath, parsedData, Encoding.UTF8);
         }
 
         /// <summary>
